@@ -1,0 +1,97 @@
+---
+title: 'Tableau Connector'
+description: 'Connecting Tableau to TextQL'
+icon: 't'
+---
+
+To connect a tableau server with TextQL you will first need to **add a Connected App in Tableau**—this action will provide a Client ID, Secret Value and ID which are necessary credentials for the TextQL Create Tableau Connector form.  You will additionally need to obtain
+
+- your Tableau Server and Site names, and
+- your Tableau account Username and Password.
+
+Generally, you will need to be a server / site administrator within your Tableau account to access complete these steps.
+
+### Adding a Connected App in Tableau
+
+From within your Tableau account, navigate to **Settings** **> Connected Apps.** Then click the **New Connected App** dropdown and select **Direct Trust.**
+
+|<img height="200" noZoom src="/images/connectors/tableau-connected-app.png" alt="Connected apps pane in Tableau" />|
+|:--:|
+| *Connected apps pane in Tableau.* |
+
+
+A form will appear, asking you to enter a **Connected App Name**, and choose an **Access Level.** Note that the Access Level options determine the projects and dashboard that will become available in TextQL.  Finally, click **Create** to create the new connected App.
+
+
+|<img height="200" noZoom src="/images/connectors/tableau-connected-apps-form.png" alt="Form for creating connected apps in Tableau" />|
+|:--:|
+| *Form for creating connected apps in Tableau.* |
+
+Click into your connected app, and then click **Generate New Secret.**
+
+
+|<img height="200" noZoom src="/images/connectors/tableau-secret.png" alt="Generate a New Secret" />|
+|:--:|
+| *Generate a New Secret.* |
+
+This action will provide to you a
+
+- **App / Client ID**
+- **Secret Value**
+- **Secret ID**
+
+which you will need to temporarily save for the remainder of the setup in TextQL.
+
+### Creating the Connector in TextQL
+
+If you haven’t already, navigate to the [TextQL Connectors Page](/core/connectors/the-connectors-page) and click **Create New Connector**.  Then submit the creation form with Tableau selected.  This will open a form for entering the credentials for reaching your Tableau connected app.
+
+|<img height="200" noZoom src="/images/connectors/tableau-connector-form.png" alt="Setting up a new Tableau Connector—Credentials form" />|
+|:--:|
+| *Setting up a new Tableau Connector—Credentials form.* |
+
+
+The following Fields can be addressed without navigating from the TextQL site:
+
+- **Connector Name:** Generic name used to identify what data is served from the connector, For Example, “Marketing Dashboards” or “Dashboards Central.”
+- **Tableau Project Names or IDs:** While this field is marked as optional, it is generally required that the form submitter include a number here.  If you are not aware of your tableau project number, please include a random integer, for example, “12345.”
+
+Next, identify the and add the **URL of your Tableau Server,** for example `https://10ax.online.tableau.com/#/site/textqldev/home`.  From the server url, you can additionally extract your
+
+- **Server**: the base url, for example, `https://10ax.online.tableau.com`, and your
+- **Site:** which is found in the server url after the “site/,” for example, “textqldev.”
+
+|<img height="200" noZoom src="/images/connectors/tableau-server.png" alt="Tableau server" />|
+|:--:|
+| *Identify your Server and Site using the Tableau Server URL.* |
+
+Finally, add your **Client ID, Secret Value,** and **Secret ID** from Tableau—these credential can be obtained by following the steps above in the section **Adding a Connected App in Tableau.**  Finally, add your Tableau **Username** (email) and **Password.**
+
+**Optionally**, a **Server Frontend URL** can be added in the case where there is a different url used for frontend embedding.
+
+When the form is complete, click **Create** to create and save your Tableau connector.
+
+At any time, you can edit your Tableau connector credentials by selecting the connector from the connectors page and selecting edit from the actions dropdown. Note that when modifying an existing connector, the TextQL site will generally redact the Tableau Secret Value.
+
+
+### Syncing The Connector -- Add Your Dashboards
+
+After setting up your Tableau connector, you'll need to select the dashboards 
+to be made availible to Ana. To do this, first select **Sync** from the actions dropdown on the Connectors Page.
+
+|<img height="200" noZoom src="/images/connectors/tableau-sync.png" alt="Tableau sync" />|
+|:--:|
+| *Selecting Sync will allow you to choose which dashboards are visible to Ana.* |
+
+Use the tick boxes on the following page to choose which dashboards are made availible to Ana.  Then click **Start Sync**.
+
+### Next Steps
+
+After syncing your Tableau connector, you will be able to chat with Synced dashboards through the Ana Chat page.
+If no further steps are taken, Ana will answer questions using only
+
+- data that is visually present on the dashboard, and 
+- data contained in the extract of the primary workbook.
+
+To enhance performance and understanding further, we suggest additionally connecting the data-warehouse that supports your Tableau dashboards, and then linking these datasourses to your Tableau.
+These features live with the **TextQL Datasets Page** (Docs in Developement).

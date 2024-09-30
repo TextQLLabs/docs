@@ -18,7 +18,7 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:alec@textql.com"
+      "url": "mailto:matt.abate@textql.com"
     }
   ],
   "topbarCtaButton": {
@@ -44,9 +44,16 @@
       "pages": [
         "core/ana",
         "core/visualizations",
-        "core/connectors",
         "core/ontology",
         "core/ontology_ai"
+      ]
+    },
+    {
+      "group": "Connectors",
+      "pages": [
+        "core/connectors/getting-started",
+        "core/connectors/the-connectors-page",
+        "core/connectors/tableau-connector"
       ]
     },
     {
